@@ -41,6 +41,8 @@ npm run dev
 - OPT: Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
 - uma das telas deve ser CSR next
 
+- Login com carteira eth
+
 colocar decisoes de design como onde colocar o css
 
 

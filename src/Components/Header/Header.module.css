@@ -1,0 +1,90 @@
+
+
+.sticky {
+	background-color: #ffffff;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+
+.headerContainer	{
+	display: flex;
+	flex-direction: row;
+	background-color: aqua;
+	justify-content: left;
+	align-items: center;
+	padding: 1rem 1.5rem 1rem 1.2rem;
+	
+}
+
+.logoContainer	{
+	display: flex;
+	flex-direction: column;	
+	align-items: center;
+}
+
+.logoTitle	{
+	font-family: 'Inter', sans-serif;
+	font-style: normal;
+	font-weight: 900;
+	color: black;
+	font-size: 1.3rem;	
+}
+
+.headerLoginContainer	{
+	flex-grow: 1;
+	text-align: right;	
+}
+
+
+.menuItensContainer	{
+	padding-left: 2rem;
+}
+
+
+.menuItens	{
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	padding: 1rem;
+	font-size: 1.5rem;
+	font-weight: 900;
+	color: darkblue;
+}
+
+
+
+/* .listInline {
+	list-style: none;
+	padding: 0;
+	font-size: 1.5rem;
+	background-color: bisque;
+}
+
+.listInline > li {
+	display: inline-block;
+}
+
+.listInline > li:before {
+	content: "\200B"; 
+	position: absolute; 
+} */
+
+
+
+@media screen and (max-width: 480px) {
+  
+	.headerContainer  {
+		flex-direction: column;
+	}
+
+	.headerLoginContainer	{
+		text-align: center;
+	}
+
+	.menuItensContainer	{
+		padding-left: 0rem;
+	}
+	
+}

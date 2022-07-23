@@ -2,7 +2,7 @@
 # LojaOnline
 This repository is the delivered code for the final project of my MBA, for the discipline Modern Web Applications. It aims to use a wide tech stack, experimenting with everything learned during the course.
 
-# Comandos (remover depois)
+## Comandos (remover depois)
 
 npx create-next-app lojaonline --template typescript
 
@@ -18,7 +18,7 @@ npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @fo
 npm run dev
 
 
-# Links (remover depois)
+## Links (remover depois)
 
 https://fiap-reactjs-presencial.herokuapp.com/doc/#/
 
@@ -29,7 +29,8 @@ https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 
 
 
-# Tech Stack: Trying to use it all, as a training path- React
+## Tech Stack: Trying to use it all, as a training path
+- (DONE!) React
 - (DONE!) Typescript
 - (DONE!) Full responsive
 - (DONE!) MVC

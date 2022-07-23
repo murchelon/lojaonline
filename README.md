@@ -33,10 +33,10 @@ https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 
 
 ## Tech Stack: Trying to use it all, as a training path
-- (DONE!) React
-- (DONE!) Typescript
+- (DOING) React
+- (DOING) Typescript
 - (DONE!) Full responsive
-- (DONE!) MVC
+- (DOING) MVC
 - (TODO) Dados via API
 - (TODO) useContext (ou redux): repositorio central de estado
 - (DONE!) Next.js
@@ -45,12 +45,14 @@ https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 - (TODO) ServiceWorker: offline mode
 - (TODO) Formik
 - (TODO) Yup (Validacao)
-- (TODO) Material UI components
+- (DOING) Material UI components
 - (DONE!) CSS-in-js (Styled Components)
 - (TODO) LocalStorage
 - (TODO) Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
+- (TODO) At least 1 screen must use Server Side Rendering (Maybe in the blockchain feature)
 - (TODO) uma das telas deve ser CSR next
 - (DONE!) Postman (to test API endpoint)
 - (TODO) Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
 - (TODO) Killer design or MUI Theme
+- (DOING) Cool README.md with Markdown
 

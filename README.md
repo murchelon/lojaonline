@@ -2,6 +2,7 @@
 # LojaOnline
 This repository is the delivered code for the final project of my MBA, for the discipline Modern Web Applications. It aims to use a wide tech stack, experimenting with everything learned during the course.
 
+# Comandos (remover depois)
 
 npx create-next-app lojaonline --template typescript
 
@@ -12,6 +13,13 @@ npm i --save @types/bcryptjs @types/jsonwebtoken
 
 npm i typescript @types/node ts-node nodemon
 
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @fontsource/roboto @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+npm run dev
+
+
+# Links (remover depois)
+
 https://fiap-reactjs-presencial.herokuapp.com/doc/#/
 
 https://github.com/joserrodrigues/fiap_mba_presencial_react_trabalho_final
@@ -20,29 +28,25 @@ https://www.simicart.com/manifest-generator.html/
 https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 
 
-npm run dev
 
-
-- React
-- Typescript
-- Full responsive
-- MVC
-- Dados via API
-- useContext (ou redux): repositorio central de estado
-- Next.js
-- PWA
-- JWT
-- ServiceWorker: offline mode
-- Formik
-- Yup (Validacao)
-- Material UI Theme
-- CSS-in-js (Styled Components)
-- LocalStorage
-- OPT: Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
-- uma das telas deve ser CSR next
-
-- Login com carteira eth
-
-colocar decisoes de design como onde colocar o css
-
+# Tech Stack: Trying to use it all, as a training path- React
+- (DONE!) Typescript
+- (DONE!) Full responsive
+- (DONE!) MVC
+- (TODO) Dados via API
+- (TODO) useContext (ou redux): repositorio central de estado
+- (DONE!) Next.js
+- (DONE!) PWA
+- (TODO) JWT
+- (TODO) ServiceWorker: offline mode
+- (TODO) Formik
+- (TODO) Yup (Validacao)
+- (TODO) Material UI components
+- (DONE!) CSS-in-js (Styled Components)
+- (TODO) LocalStorage
+- (TODO) Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
+- (TODO) uma das telas deve ser CSR next
+- (DONE!) Postman (to test API endpoint)
+- (TODO) Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
+- (TODO) Killer design or MUI Theme
 

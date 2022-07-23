@@ -5,6 +5,7 @@
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	z-index: 100;
 }
 
 
@@ -29,12 +30,13 @@
 	font-style: normal;
 	font-weight: 900;
 	color: black;
-	font-size: 1.3rem;	
+	font-size: 0.9rem;	
 }
 
 .headerLoginContainer	{
 	flex-grow: 1;
 	text-align: right;	
+	font-size: 0.8rem;
 }
 
 
@@ -48,7 +50,7 @@
 	flex-direction: row;
 	gap: 2rem;
 	padding: 1rem;
-	font-size: 1.5rem;
+	font-size: 0.9rem;
 	font-weight: 900;
 	color: darkblue;
 }
@@ -73,7 +75,7 @@
 
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 560px) {
   
 	.headerContainer  {
 		flex-direction: column;

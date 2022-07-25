@@ -9,14 +9,20 @@ https://github.com/murchelon/lojaonline/blob/main/_ProjectNotes/FinalProject_Des
 
 npx create-next-app lojaonline --template typescript
 
-npm install next-pwa
+npm i next-pwa
 
-npm install --save bcryptjs jsonwebtoken
+npm i --save bcryptjs jsonwebtoken
 npm i --save @types/bcryptjs @types/jsonwebtoken
 
 npm i typescript @types/node ts-node nodemon
 
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @fontsource/roboto @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+npm i @mui/material @emotion/react @emotion/styled @mui/icons-material @fontsource/roboto @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+npm i --save-dev @mui/types
+
+npm i -S formik yup
+
+npm i nookies
+npm i --save-dev @types/cookie
 
 npm run dev
 

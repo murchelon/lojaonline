@@ -6,6 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
+
 
 
 
@@ -18,21 +22,26 @@ const CardView = () =>  {
           <CardMedia
             component="img"
             height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image="https://source.unsplash.com/PDX_a_82obo"
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              Nome bem comprido de um produto que vai aparecer
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget accumsan sem. Aenean lacus metus, porta sit amet massa eget, placerat bibendum sapien
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
+            <div className={CardStyles.actionsContainer}>
+              <IconButton aria-label="Adicionar ao Favoritos">
+                <FavoriteIcon />
+              </IconButton>
+
+              <Button size="small">Comprar!</Button>
+
+            </div>
           </CardActions>
         </Card>
       </div>

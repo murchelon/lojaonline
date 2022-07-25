@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderStyles from './Header.module.css'
 import Image from 'next/image'
-
+import Button from '@mui/material/Button';
 
 const HeaderView = () =>  {
 
@@ -25,8 +25,10 @@ const HeaderView = () =>  {
               </div>
             </div>
             <div className={HeaderStyles.headerLoginContainer}>
-              <div>Olá Visitante Torhh</div>
-              <div>Login</div>
+              <div className={HeaderStyles.headerLoginGreetingMsg}>Olá Visitante Torhh</div>
+              <div>
+                <Button variant="contained" size="small" disableElevation>Login</Button>
+              </div>
             </div>
           </div>
           

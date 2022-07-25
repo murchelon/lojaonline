@@ -1,9 +1,9 @@
 import React from 'react'
-import HomeController from '../src/Screens/Home/HomeController.tsx' 
+import LojaOnlineController from '../src/LojaOnlineController.tsx' 
 
 const RootSite = () => {
   return (
-    <HomeController />    
+    <LojaOnlineController />    
   )
 }
 

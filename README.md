@@ -29,6 +29,8 @@ npm i --save-dev @types/cookie
 npm i axios
 npm i --save-dev @types/axios
 
+npm i notistack
+
 npm run dev
 
 

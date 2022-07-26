@@ -4,8 +4,6 @@ import Router from 'next/router'
 import { API_doLogin } from '../Services/API.ts'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
 
-
-
 // import { recoverUserInformation, signInRequest } from "../services/auth";
 // import { api } from "../services/api";
 
@@ -17,7 +15,7 @@ export function AuthProvider({ children }) {
 
   const isAuthenticated = !!user;
 
-  useEffect(() => {
+  useEffect(() => {    
     const { 'lojaonline.token': token } = parseCookies()
 
     if (token) {
@@ -29,20 +27,47 @@ export function AuthProvider({ children }) {
 
   async function signIn({ email, password }: tpSignInData) {
 
-    const { token, user } = await API_doLogin({
+    // alert('signIn => email: ' + email + ' | password: ' + password)
+
+    const x = await API_doLogin({
       email,
       password,
     })
+    .then(ret => {
+      // alert('API: ' + JSON.stringify(ret));
+      // console.log(JSON.stringify(ret, null, 2))
+      // console.log(ret)
 
-    setCookie(undefined, 'nextauth.token', token, {
-      maxAge: 60 * 60 * 1, // 1 hour
+      const {name, token, phone, userId} = ret
+
+      const _user: tpUser = {
+        token,
+        userId,
+        name,
+        email,
+        phone
+      }
+
+      console.log(_user)
+
+      setCookie(undefined, 'lojaonline.token', token, {
+        maxAge: 60 * 60 * 1, // 1 hour
+      })
+
+      // api.defaults.headers['Authorization'] = `Bearer ${token}`;
+
+      setUser(_user)
+
+      // Router.push('/loja');      
+
+  
+
     })
+    .catch(error => {
+        console.log('Error in fetch from api: ' + error.message); 
+    }); 
+    
 
-    // api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-    // setUser(user)
-
-    Router.push('/loja');
   }
 
   return (

@@ -4,12 +4,14 @@ import LojaOnlineView from './LojaOnlineView.tsx'
 import { useRouter } from 'next/router'
 
 import { AuthProvider } from './Contexts/AuthContext.tsx'
-
+import { SnackbarProvider, VariantType, useSnackbar } from 'notistack';
 
 const LojaOnlineController: NextPage = () => {
     return (
         <AuthProvider>
-            <LojaOnlineView />        
+            <SnackbarProvider maxSnack={4} autoHideDuration={3000}>
+                <LojaOnlineView />        
+            </SnackbarProvider>
         </AuthProvider>
     );
 } 

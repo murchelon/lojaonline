@@ -20,9 +20,14 @@ npm i @mui/material @emotion/react @emotion/styled @mui/icons-material @fontsour
 npm i --save-dev @mui/types
 
 npm i -S formik yup
+npm i --save-dev @types/yup
+
 
 npm i nookies
 npm i --save-dev @types/cookie
+
+npm i axios
+npm i --save-dev @types/axios
 
 npm run dev
 
@@ -61,4 +66,6 @@ https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 - (TODO) Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
 - (TODO) Killer design or MUI Theme
 - (DOING) Cool README.md with Markdown
+- Axios
+- Async/Await
 

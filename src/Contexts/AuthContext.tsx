@@ -1,33 +1,19 @@
 import { createContext, useEffect, useState } from "react";
 import { setCookie, parseCookies } from 'nookies'
 import Router from 'next/router'
+import { API_doLogin } from '../Services/API.ts'
+import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
+
+
 
 // import { recoverUserInformation, signInRequest } from "../services/auth";
 // import { api } from "../services/api";
 
-type User = {
-  userId: string;
-  name: string;
-  email: string;
-  phone: string;
-}
-
-type SignInData = {
-  email: string;
-  password: string;
-}
-
-type AuthContextType = {
-  isAuthenticated: boolean;
-  user: User;
-  signIn: (data: SignInData) => Promise<void>
-}
-
-export const AuthContext = createContext({} as AuthContextType)
+export const AuthContext = createContext({} as tpAuthContext)
 
 export function AuthProvider({ children }) {
 
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<tpUser | null>(null)
 
   const isAuthenticated = !!user;
 
@@ -41,8 +27,9 @@ export function AuthProvider({ children }) {
     }
   }, [])
 
-  async function signIn({ email, password }: SignInData) {
-    const { token, user } = await signInRequest({
+  async function signIn({ email, password }: tpSignInData) {
+
+    const { token, user } = await API_doLogin({
       email,
       password,
     })
@@ -53,9 +40,9 @@ export function AuthProvider({ children }) {
 
     // api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-    setUser(user)
+    // setUser(user)
 
-    Router.push('/dashboard');
+    Router.push('/loja');
   }
 
   return (

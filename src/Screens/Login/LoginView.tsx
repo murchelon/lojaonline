@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { API_doLogin } from '../../Services/API.ts'
 
 const LoginView: NextPage = () =>  {
 
@@ -22,15 +23,28 @@ const LoginView: NextPage = () =>  {
 
     const formik = useFormik({
       initialValues: {
+        // email: 'nome@dominio.com',
         email: 'nome@dominio.com',
-        password: '',
+        // password: '',
+        password: '123456',
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-        alert(JSON.stringify(values, null, 2));
+
+        // alert(JSON.stringify(values, null, 2));
+
+        API_doLogin(values)
+          .then(ret => {
+            alert('API: ' + JSON.stringify(ret));
+          })                
+          .catch(error => {
+              console.log('Error in fetch from api: ' + error.message); 
+          });    
+
       },
     });
 
+    
     
     return (
 

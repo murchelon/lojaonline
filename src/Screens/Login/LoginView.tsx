@@ -8,22 +8,47 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 // import { API_doLogin } from '../../Services/API.ts'
 import { AuthContext } from '../../Contexts/AuthContext.tsx'
-import { SnackbarProvider, VariantType, useSnackbar } from 'notistack';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const LoginView: NextPage = () =>  {
 
   const { signIn } = useContext(AuthContext)
 
-  const { enqueueSnackbar } = useSnackbar();
-
-  const showToast = (variant: VariantType, text: string) => () => {
-    // variant could be success, error, warning, info, or default
-    enqueueSnackbar(text, { variant });
-  };
-
   async function handleSignIn(data) {
-    await signIn(data)
-    
+
+    const ret = await signIn(data)
+
+    if (ret)
+    {
+      toast.success('Oba!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+        });
+    }
+    else
+    {
+      toast.error('Login ou senha incorretos', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+        });      
+    }
+   
   }
   
   const validationSchema = yup.object({
@@ -50,24 +75,17 @@ const LoginView: NextPage = () =>  {
 
       handleSignIn(values)
 
-
-      // alert(JSON.stringify(values, null, 2));
-
-      // API_doLogin(values)
-      //   .then(ret => {
-      //     alert('API: ' + JSON.stringify(ret));
-      //   })                
-      //   .catch(error => {
-      //       console.log('Error in fetch from api: ' + error.message); 
-      //   });    
-
     },
   });
 
+  function showToastTest()
+  {
+    toast("Teste de toast")
+  }
     
+  
     
   return (
-
     
       <div className={LoginStyles.backContainer}>  
 
@@ -102,13 +120,16 @@ const LoginView: NextPage = () =>  {
             </Button>
          
           </form>
-          <Button color="primary" variant="contained" disableElevation fullWidth onClick={showToast('error', 'Erro de login')}>
+          
+          <Button color="primary" variant="contained" disableElevation fullWidth onClick={showToastTest}>
               Show Toast!
           </Button>   
+ 
         </div>
 
-      </div>
+        <ToastContainer />
 
+      </div>
 
   );
 } 

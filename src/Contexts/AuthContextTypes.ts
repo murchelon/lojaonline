@@ -13,8 +13,8 @@ export type tpSignInData = {
 }
   
 export type tpAuthContext = {
-    isAuthenticated: boolean;
+    isAuth: boolean;
     user: tpUser;
-    signIn: (data: tpSignInData) => Promise<void>
+    signIn: (data: tpSignInData) => Promise<boolean>
 }
   

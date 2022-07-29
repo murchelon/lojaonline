@@ -1,39 +1,52 @@
 import { createContext, useEffect, useState } from "react";
 import { setCookie, parseCookies } from 'nookies'
-import Router from 'next/router'
 import { API_doLogin } from '../Services/API.ts'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
+
 
 // import { recoverUserInformation, signInRequest } from "../services/auth";
 // import { api } from "../services/api";
 
 export const AuthContext = createContext({} as tpAuthContext)
 
+
 export function AuthProvider({ children }) {
 
-  const [user, setUser] = useState<tpUser | null>(null)
+  const _initialUser: tpUser = {
+    token: '',
+    userId: '',
+    name: '',
+    email: '',
+    phone: ''
+  }
 
-  const isAuthenticated = !!user;
+  const [user, setUser] = useState<tpUser>(_initialUser)
+  const [isAuth, setIsAuth] = useState<boolean>(false)
 
   useEffect(() => {    
     const { 'lojaonline.token': token } = parseCookies()
+    const { 'lojaonline.userInfo': userInfo } = parseCookies()
 
     if (token) {
-      // recoverUserInformation().then(response => {
-      //   setUser(response.user)
-      // })
+
+      if (userInfo) {
+        setUser(JSON.parse(userInfo))
+        setIsAuth(true)
+      }
+
     }
   }, [])
 
   async function signIn({ email, password }: tpSignInData) {
 
-    // alert('signIn => email: ' + email + ' | password: ' + password)
+    var isLoginOk = false;
 
     const x = await API_doLogin({
       email,
       password,
     })
     .then(ret => {
+
       // alert('API: ' + JSON.stringify(ret));
       // console.log(JSON.stringify(ret, null, 2))
       // console.log(ret)
@@ -50,28 +63,41 @@ export function AuthProvider({ children }) {
 
       console.log(_user)
 
-      setCookie(undefined, 'lojaonline.token', token, {
-        maxAge: 60 * 60 * 1, // 1 hour
-      })
-
-      // api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-      setUser(_user)
-
-      // Router.push('/loja');      
-
+      if (token)
+      {
+        setCookie(undefined, 'lojaonline.token', token, {
+          maxAge: 60 * 60 * 1, // 1 hour
+        })
   
+        setCookie(undefined, 'lojaonline.userInfo', JSON.stringify(_user), {
+          maxAge: 60 * 60 * 1, // 1 hour
+        })
+  
+        // api.defaults.headers['Authorization'] = `Bearer ${token}`;
+  
+        isLoginOk = true;
+  
+        setUser(_user)
+        setIsAuth(true)
+      }
+      else
+      {
+        isLoginOk = false;
+      }
+      
+      // Router.push('/loja');      
 
     })
     .catch(error => {
-        console.log('Error in fetch from api: ' + error.message); 
+      console.log('Error in fetch from api: ' + error.message); 
     }); 
     
+    return isLoginOk
 
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ user, isAuth, signIn }}>
       {children}
     </AuthContext.Provider>
   )

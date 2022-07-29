@@ -63,21 +63,3 @@ export async function API_doLogin(loginCredentials: tpSignInData)
 
     return data;    
 }
-
-
-export async function API_doLogin2(data: tpSignInData)
-{
-    await delay()
-
-    return {
-        token: '1',
-        user: {
-            userId: '1',
-            name: 'Marcelo',
-            email: 'qwdqwd@wefwef.com',
-            phone: '11976845574',
-            token: '1'
-        }
-    }        
-    
-}

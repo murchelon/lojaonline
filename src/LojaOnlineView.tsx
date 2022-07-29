@@ -6,6 +6,7 @@ import ProductsController from './Screens/Products/ProductsController.tsx'
 import LoginController from './Screens/Login/LoginController.tsx'
 
 
+
 const LojaOnlineView: NextPage = () =>  {
 
     return (
@@ -15,7 +16,7 @@ const LojaOnlineView: NextPage = () =>  {
         <HeaderController />
         <LoginController />
         {/* <ProductsController /> */}
-
+        
       </div>
 
     );

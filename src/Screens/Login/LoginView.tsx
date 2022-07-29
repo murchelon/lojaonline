@@ -13,7 +13,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const LoginView: NextPage = () =>  {
 
   const { signIn } = useContext(AuthContext)
@@ -22,7 +21,7 @@ const LoginView: NextPage = () =>  {
 
     const ret = await signIn(data)
 
-    if (ret)
+    if (ret) 
     {
       toast.success('Oba!', {
         position: "top-right",
@@ -66,7 +65,7 @@ const LoginView: NextPage = () =>  {
   const formik = useFormik({
     initialValues: {
       // email: 'nome@dominio.com',
-      email: 'nome@dominio.com',
+      email: process.env.REACT_APP_USERNAME,
       // password: '',
       password: '123456',
     },

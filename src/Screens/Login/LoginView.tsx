@@ -65,7 +65,7 @@ const LoginView: NextPage = () =>  {
   const formik = useFormik({
     initialValues: {
       // email: 'nome@dominio.com',
-      email: process.env.REACT_APP_USERNAME,
+      email: process.env.NEXT_PUBLIC_USERNAME,
       // password: '',
       password: '123456',
     },
@@ -82,7 +82,7 @@ const LoginView: NextPage = () =>  {
     toast("Teste de toast")
   }
     
-  
+  console.log('aqui: ' + process.env.NEXT_PUBLIC_USERNAME)
     
   return (
     

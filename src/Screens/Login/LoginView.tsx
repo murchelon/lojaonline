@@ -22,7 +22,7 @@ import Router from 'next/router'
 
 const LoginView: NextPage = () =>  {
 
-  const { signIn } = useContext(AuthContext)
+  const { signIn, isTokenAlive } = useContext(AuthContext)
 
   const [isSubmiting, setIsSubmiting] = useState(false); 
 
@@ -97,6 +97,17 @@ const LoginView: NextPage = () =>  {
     toast("Teste de toast")
   }
       
+  async function handleBtnDebug()
+  {
+    // token ok:
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJtMzQzNjAxQGZpYXAuY29tLmJyIiwidXNlcklEIjoiNjJjYjIyYjJiMWQ4OTk5OWFiNDljMWZjIiwiaWF0IjoxNjU5MzM0ODQ4LCJleHAiOjE2NTkzMzg0NDh9.k2JxWX5Ug51nZgcfHAdZadSsNQFXpFhQOHqFjk68Aag'
+    // let token = 'asascpXVCJ9.eyJlbWFpbCI6InJtMzQzNjAxQGZpYXAuY29tLmJyIiwidXNlcklEIjoiNjJjYjIyYjJiMWQ4OTk5OWFiNDljMWZjIiwiaWF0IjoxNjU5MzMwNzgxLCJleHAiOjE2NTkzMzQzODF9.aws7uo090E_ec4aoF39BoeUtPmtmR-GzaIIY0rKcKyM'
+    // var ret = ''
+    const ret = await isTokenAlive(token)    
+    alert('ret = ' + ret)
+  }
+
+
     
   return (
     
@@ -136,9 +147,9 @@ const LoginView: NextPage = () =>  {
          
           </form>
           
-          {/* <Button color="primary" variant="contained" disableElevation fullWidth onClick={showToastTest}>
-              Show Toast!
-          </Button>    */}
+          <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleBtnDebug}>
+            isTokenAlive
+          </Button>   
  
         </div>
 

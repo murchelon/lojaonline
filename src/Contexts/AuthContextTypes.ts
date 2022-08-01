@@ -17,5 +17,6 @@ export type tpAuthContext = {
     user: tpUser;
     signIn: (data: tpSignInData) => Promise<boolean>;
     logoff: () => Promise<void>;
+    isTokenAlive: (token: string) => Promise<boolean>;
 }
   

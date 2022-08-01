@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
-import { API_doLogin } from '../Services/API.ts'
+import { API_login, API_isTokenAline } from '../Services/API_FinalProject.ts'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
 
 
@@ -56,11 +56,20 @@ export function AuthProvider({ children }) {
 
   }
 
+  async function isTokenAlive(token: string)
+  {
+    var isTokenOk = false;
+
+    const x = await API_isTokenAline(token)
+   
+    return x    
+  }
+
   async function signIn({ email, password }: tpSignInData) {
 
     var isLoginOk = false;
 
-    const x = await API_doLogin({
+    const x = await API_login({
       email,
       password,
     })
@@ -115,7 +124,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuth, signIn, logoff }}>
+    <AuthContext.Provider value={{ user, isAuth, signIn, logoff, isTokenAlive}}>
       {children}
     </AuthContext.Provider>
   )

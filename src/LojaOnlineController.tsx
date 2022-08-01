@@ -1,15 +1,23 @@
 import React from 'react'
+import { useContext } from 'react'
 import { NextPage } from 'next'
-import LojaOnlineView from './LojaOnlineView.tsx'
 import { useRouter } from 'next/router'
-
-import { AuthProvider } from './Contexts/AuthContext.tsx'
+import LojaOnlineView from './LojaOnlineView.tsx'
+import { AuthContext } from './Contexts/AuthContext.tsx'
 
 const LojaOnlineController: NextPage = () => {
+
+    const { isAuth, user } = useContext(AuthContext)
+
+    console.log('LojOnlineController: isAuth: ' + isAuth)
+
     return (
-        <AuthProvider>
-            <LojaOnlineView />  
-        </AuthProvider>
+        
+        <LojaOnlineView 
+            isAuth={isAuth}  
+            user={user}              
+        />  
+     
     );
 } 
 

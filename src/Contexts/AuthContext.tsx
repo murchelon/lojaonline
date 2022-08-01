@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
 import { API_doLogin } from '../Services/API.ts'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
-import Router from 'next/router'
+
 
 // import { recoverUserInformation, signInRequest } from "../services/auth";
 // import { api } from "../services/api";
@@ -53,6 +53,7 @@ export function AuthProvider({ children }) {
   
     setUser(_initialUser)
     setIsAuth(false)  
+
   }
 
   async function signIn({ email, password }: tpSignInData) {
@@ -102,8 +103,7 @@ export function AuthProvider({ children }) {
       {
         isLoginOk = false;
       }
-      
-      Router.push('/loja');      
+     
 
     })
     .catch(error => {

@@ -14,6 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../Contexts/AuthContext.tsx'
 import LoginStyles from './Login.module.css'
 
+import Router from 'next/router'
+
 // import { resolve } from 'path';
 // import { resolveCaa } from 'dns/promises';
 
@@ -62,6 +64,7 @@ const LoginView: NextPage = () =>  {
               {
                 setIsSubmiting(false)
                 resolve('login sucesso')
+                Router.push('/loja'); 
               }
               else
               {

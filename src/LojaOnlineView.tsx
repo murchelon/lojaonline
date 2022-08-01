@@ -7,19 +7,31 @@ import LoginController from './Screens/Login/LoginController.tsx'
 
 
 
-const LojaOnlineView: NextPage = () =>  {
+const LojaOnlineView: NextPage = (props: any) =>  {
 
-    return (
+  const isAuth: boolean = props.isAuth
+  const user = props.user
 
-      <div className={LojaOnlineStyles.appContainer}>
+  console.log('LojOnlineView: isAuth: ' + isAuth)
 
-        <HeaderController />
-        <LoginController />
-        {/* <ProductsController /> */}
-        
-      </div>
 
-    );
+  return (
+
+    <div className={LojaOnlineStyles.appContainer}>
+
+      <HeaderController  />
+
+      {isAuth && (
+        <ProductsController  /> 
+      )}
+
+      {!isAuth && (
+        <LoginController />  
+      )}
+      
+    </div>
+
+  );
 } 
 
 export default LojaOnlineView;

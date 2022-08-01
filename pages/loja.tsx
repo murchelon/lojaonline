@@ -1,10 +1,35 @@
 import React from 'react'
+import { GetServerSideProps } from 'next'
+import { parseCookies } from 'nookies'
 import LojaOnlineController from '../src/LojaOnlineController.tsx' 
+import { AuthProvider } from '../src/Contexts/AuthContext.tsx'
 
-const LojaSite = () => {
+
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { ['lojaonline.token']: token } = parseCookies(ctx)  
+
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            }
+        }
+    }
+      
+    return {
+        props: {}
+    }
+}
+
+const Loja = () => {
   return (
-    <LojaOnlineController />    
+    <AuthProvider>
+      <LojaOnlineController />  
+    </AuthProvider>      
   )
 }
 
-export default LojaSite;
+export default Loja;

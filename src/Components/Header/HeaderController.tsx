@@ -13,10 +13,10 @@ const HeaderController = () =>  {
   function handleLogoff()
   {
     logoff()
+    Router.push('/'); 
   }
 
-
-  console.log('isAuth = ' + isAuth)
+  // console.log('isAuth = ' + isAuth)
 
   return (
     <HeaderView 

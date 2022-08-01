@@ -6,11 +6,9 @@ import Button from '@mui/material/Button';
 const HeaderView = (props: any) =>  {
 
     const isAuth: boolean = props.isAuth
-
     const handleLogoff = props.handleLogoff
 
-
-    console.log('HeaderView: isAuth = ' + isAuth)
+    // console.log('HeaderView: isAuth = ' + isAuth)
 
     return (
 

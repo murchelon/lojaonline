@@ -3,7 +3,14 @@ import HeaderStyles from './Header.module.css'
 import Image from 'next/image'
 import Button from '@mui/material/Button';
 
-const HeaderView = () =>  {
+const HeaderView = (props: any) =>  {
+
+    const isAuth: boolean = props.isAuth
+
+    const handleLogoff = props.handleLogoff
+
+
+    console.log('HeaderView: isAuth = ' + isAuth)
 
     return (
 
@@ -19,15 +26,26 @@ const HeaderView = () =>  {
             </div>
             
             <div className={HeaderStyles.menuItensContainer}>
+            
               <div className={HeaderStyles.menuItens}>
-                <div>Produtos</div>
-                <div>Favoritos</div>
+
+                {isAuth && (
+                    <>
+                      <div>Produtos</div>
+                      <div>Favoritos</div>
+                    </>
+                )}
+
               </div>
             </div>
             <div className={HeaderStyles.headerLoginContainer}>
-              <div className={HeaderStyles.headerLoginGreetingMsg}>Olá Visitante Torhh</div>
+              <div className={HeaderStyles.headerLoginGreetingMsg}>
+                {isAuth && props.name.toUpperCase()}
+              </div>
               <div>
-                <Button variant="contained" size="small" disableElevation>Login</Button>
+
+                {isAuth && <Button size="small" disableElevation={true} onClick={handleLogoff}>Logoff</Button>}
+                
               </div>
             </div>
           </div>

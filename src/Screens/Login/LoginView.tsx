@@ -1,53 +1,33 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { NextPage } from 'next'
-import LoginStyles from './Login.module.css'
+
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-// import { API_doLogin } from '../../Services/API.ts'
-import { AuthContext } from '../../Contexts/AuthContext.tsx'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { AuthContext } from '../../Contexts/AuthContext.tsx'
+import LoginStyles from './Login.module.css'
+
+// import { resolve } from 'path';
+// import { resolveCaa } from 'dns/promises';
 
 
 const LoginView: NextPage = () =>  {
 
   const { signIn } = useContext(AuthContext)
 
-  async function handleSignIn(data) {
+  const [isSubmiting, setIsSubmiting] = useState(false); 
 
-    const ret = await signIn(data)
-
-    if (ret) 
-    {
-      toast.success('Oba!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored"
-        });
-    }
-    else
-    {
-      toast.error('Login ou senha incorretos', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored"
-        });      
-    }
-   
+  async function handleSignIn(data)
+  {
+    const ret = await signIn(data)    
+    return ret;   
   }
   
   const validationSchema = yup.object({
@@ -61,18 +41,50 @@ const LoginView: NextPage = () =>  {
       .required('A senha é obrigatória'),
   });
 
-
   const formik = useFormik({
     initialValues: {
-      // email: 'nome@dominio.com',
       email: process.env.NEXT_PUBLIC_USERNAME,
-      // password: '',
-      password: '123456',
+      password: process.env.NEXT_PUBLIC_PASSWORD,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
 
-      handleSignIn(values)
+      setIsSubmiting(true)
+
+      let loginPromisse = new Promise(function(resolve, reject)
+      {        
+        handleSignIn(values)
+          .then(
+            (result) => { 
+              // console.log('sucesso: ' + result);
+
+              if (result)
+              {
+                setIsSubmiting(false)
+                resolve('login sucesso')
+              }
+              else
+              {
+                setIsSubmiting(false)
+                reject('login incorreto')
+              }
+            },
+            (error) => { 
+              console.log('erro: ' + error);
+              setIsSubmiting(false)
+              reject('erro')
+            }
+          )
+      });
+      
+      toast.promise(
+          loginPromisse,
+          {
+            pending: 'Realizando login...',
+            success: 'Login feito com sucesso! 👌',
+            error: 'Usuario ou senha incorretos! 🤯'
+          }
+      )
 
     },
   });
@@ -81,8 +93,7 @@ const LoginView: NextPage = () =>  {
   {
     toast("Teste de toast")
   }
-    
-  console.log('aqui: ' + process.env.NEXT_PUBLIC_USERNAME)
+      
     
   return (
     
@@ -100,6 +111,7 @@ const LoginView: NextPage = () =>  {
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
+              disabled={!!isSubmiting} 
             />
             <br /><br />
             <TextField
@@ -112,17 +124,18 @@ const LoginView: NextPage = () =>  {
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
+              disabled={!!isSubmiting} 
 
             />
-            <Button color="primary" variant="contained" disableElevation fullWidth type="submit">
+            <Button color="primary" id="btnSubmit" disabled={!!isSubmiting} variant="contained" disableElevation fullWidth type="submit">
               Submit
             </Button>
          
           </form>
           
-          <Button color="primary" variant="contained" disableElevation fullWidth onClick={showToastTest}>
+          {/* <Button color="primary" variant="contained" disableElevation fullWidth onClick={showToastTest}>
               Show Toast!
-          </Button>   
+          </Button>    */}
  
         </div>
 

@@ -54,6 +54,7 @@ export function AuthProvider({ children }) {
     setUser(_initialUser)
     setIsAuth(false)  
 
+
   }
 
   async function isTokenAlive(token: string)

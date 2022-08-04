@@ -43,3 +43,25 @@ export async function API_isTokenAline(token: string)
 
   return true;    
 }
+
+
+
+export async function API_getAllProducts(token: string)
+{
+    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts', {
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer ' + token
+        }
+    });
+
+    if (!res.ok) {
+        const message = 'An error has occured: ' + res.status;
+        throw new Error(message);
+    }
+
+    const data = await res.json()  ;  
+
+    return data;     
+}

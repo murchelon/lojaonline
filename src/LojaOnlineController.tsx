@@ -9,7 +9,7 @@ const LojaOnlineController: NextPage = () => {
 
     const { isAuth, user } = useContext(AuthContext)
 
-    console.log('LojOnlineController: isAuth: ' + isAuth)
+    // console.log('LojOnlineController: isAuth: ' + isAuth)
 
     return (
         

@@ -12,7 +12,7 @@ const LojaOnlineView: NextPage = (props: any) =>  {
   const isAuth: boolean = props.isAuth
   const user = props.user
 
-  console.log('LojOnlineView: isAuth: ' + isAuth)
+  // console.log('LojOnlineView: isAuth: ' + isAuth)
 
 
   return (

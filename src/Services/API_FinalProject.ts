@@ -1,6 +1,7 @@
 import { tpUser, tpSignInData, tpAuthContext } from '../Contexts/AuthContextTypes'
 
 
+
 export async function API_login(loginCredentials: tpSignInData)
 {
     const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/login', {
@@ -48,12 +49,37 @@ export async function API_isTokenAline(token: string)
 
 export async function API_getAllProducts(token: string)
 {
-    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts', {
+    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/?page=1&perPage=100', {
         method: 'GET',
         headers:{
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Bearer ' + token
         }
+    });
+
+    if (!res.ok) {
+        const message = 'An error has occured: ' + res.status;
+        throw new Error(message);
+    }
+
+    const data = await res.json()  ;  
+
+    return data;     
+}
+
+
+
+export async function API_setFavorite(token: string, idProduct: string)
+{
+    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/manageFavorite', {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer ' + token
+        },
+        body: new URLSearchParams({
+            'productID': idProduct
+        })        
     });
 
     if (!res.ok) {

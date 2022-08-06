@@ -1,10 +1,14 @@
 import React from 'react'
 import CardView from './CardView.tsx'
 
-const CardController = () =>  {
+const CardController = (props: any) =>  {
 
     return (
-      <CardView />
+      <CardView 
+        product={props.product}
+        handleClickComprar={props.handleClickComprar}
+        handleClickFav={props.handleClickFav}  
+      />
     );
 } 
 

@@ -6,3 +6,7 @@
     align-items: center;
     flex: 1;
 }
+
+.cardDesc   {
+    min-height: 5rem;
+}

@@ -107,6 +107,10 @@ const LoginView: NextPage = () =>  {
     alert('ret = ' + ret)
   }
 
+  function handleNewUser()
+  {
+    Router.push('/cadastrar'); 
+  }
 
     
   return (
@@ -147,9 +151,15 @@ const LoginView: NextPage = () =>  {
          
           </form>
           
-          <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleBtnDebug}>
-            isTokenAlive
+          <br />
+          
+          <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleNewUser}>
+            Cadastrar novo Usuário
           </Button>   
+
+          {/* <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleBtnDebug}>
+            isTokenAlive
+          </Button>    */}
  
         </div>
 

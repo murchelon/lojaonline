@@ -7,16 +7,32 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import Favorite from '@mui/icons-material/Favorite';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
 
 
 
 
-const CardView = () =>  {
+const CardView = (props: any) =>  {
+
+    const fullName: string = props.product.name
+    const isFavorite: boolean = props.product.favorite
+
+    let shortName: string = ''
+
+    let _namepart: Array<string> = fullName.split(' ')
+    
+    for (var x=0 ; x<=_namepart.length - 1 ; x++)
+    {
+      if (x >= 3) {break;}
+      shortName += _namepart[x] + ' '
+    }
+
+    shortName = shortName.trim()
 
     return (
-
+    
       <div>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
@@ -27,20 +43,22 @@ const CardView = () =>  {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Nome bem comprido de um produto que vai aparecer
+              {shortName}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget accumsan sem. Aenean lacus metus, porta sit amet massa eget, placerat bibendum sapien
+            <Typography variant="body2" color="text.secondary" className={CardStyles.cardDesc}>
+              {fullName}
             </Typography>
           </CardContent>
           <CardActions>
             <div className={CardStyles.actionsContainer}>
-              <IconButton aria-label="Adicionar ao Favoritos">
-                <FavoriteIcon />
+              <IconButton aria-label="Adicionar ao Favoritos" onClick={() => props.handleClickFav(props.product._id)}>
+                {isFavorite && (<Favorite />)}    
+                {!isFavorite && (<FavoriteBorder />)}
               </IconButton>
-
-              <Button size="small">Comprar!</Button>
-
+                <div>
+                  US$ {props.product.price}
+                </div>
+              <Button size="small" onClick={() => props.handleClickComprar(props.product._id)}>Comprar!</Button>
             </div>
           </CardActions>
         </Card>

@@ -1,0 +1,10 @@
+.CadastrarContainer  {
+    min-height: 100vh;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: black;
+    font-size: 1.3rem;
+    background-color: #f7edd2;
+  }

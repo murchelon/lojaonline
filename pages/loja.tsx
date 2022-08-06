@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
-import LojaOnlineController from '../src/LojaOnlineController.tsx' 
+import LojaOnlineController from '../src/LojaOnlineController' 
 import { AuthProvider } from '../src/Contexts/AuthContext'
 
 

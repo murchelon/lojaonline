@@ -20,3 +20,11 @@ export type tpAuthContext = {
     isTokenAlive: (token: string) => Promise<boolean>;
 }
   
+
+
+export type tpProduct = {
+    favorite: boolean;
+    name: string;
+    price: string;
+    _id: string;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
-import HeaderView from './HeaderView.tsx'
-import { AuthContext, Logoff } from '../../Contexts/AuthContext.tsx'
+import HeaderView from './HeaderView'
+import { AuthContext } from '../../Contexts/AuthContext'
 import Router from 'next/router'
 
 const HeaderController = () =>  {

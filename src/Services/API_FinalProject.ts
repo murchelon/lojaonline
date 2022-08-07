@@ -1,4 +1,4 @@
-import { tpUser, tpSignInData, tpAuthContext } from '../Contexts/AuthContextTypes'
+import { tpSignInData, tpCreateUser } from '../Contexts/AuthContextTypes'
 
 
 
@@ -28,7 +28,7 @@ export async function API_login(loginCredentials: tpSignInData)
 }
 
 
-export async function API_isTokenAline(token: string)
+export async function API_isTokenAlive(token: string)
 {
   const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/getFavProducts', {
       method: 'GET',
@@ -90,4 +90,47 @@ export async function API_setFavorite(token: string, idProduct: string)
     const data = await res.json()  ;  
 
     return data;     
+}
+
+
+export async function API_createNewUser(values: tpCreateUser)
+{
+    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/signup/', {
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },    
+        body: new URLSearchParams(values)
+        // body: new URLSearchParams({
+        //     'email': 'rm34360w1@fiap.com.br',
+        //     'password': '123456',
+        //     'name': 'murch1',
+        //     'phone': '11976844447'
+        // })
+    });
+
+    const data = await res.json() 
+
+    let ret = '0'
+
+    if (data.message === 'User created successfully')
+    {
+        ret = '1'
+    }
+    else if(data.message === 'Validation failed')
+    {
+        let campoNome = data.data[0].param
+        let campoErro = data.data[0].msg
+        let campoValor = data.data[0].value
+        
+        ret = 'Erro ao criar usuario: ' + campoNome + ' | ' + campoErro + ' | ' + campoValor
+    }
+    else
+    {
+        ret = data
+    }
+
+    // console.log('API_createNewUser: ' + ret)
+
+    return ret;  
 }

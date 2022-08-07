@@ -1,7 +1,8 @@
 import React from 'react'
+import { NextPage } from 'next'
 import CadastrarView from './CadastrarView'
 
-const CadastrarController = () =>  {
+const CadastrarController: NextPage = () =>  {
 
     return (
       <CadastrarView />

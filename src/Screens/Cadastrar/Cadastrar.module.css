@@ -1,10 +1,40 @@
-.CadastrarContainer  {
-    min-height: 100vh;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    color: black;
-    font-size: 1.3rem;
-    background-color: #f7edd2;
-  }
+
+.appContainer  {
+
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: black;
+  font-size: 1.3rem;
+  background-color: #f7edd2;
+}
+
+.backContainer  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+
+.backPanel {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: rgb(253, 226, 184);
+  /* min-width: 1rem;
+  max-width: 50rem; */
+  width: 90%;
+  max-width: 30rem;
+  text-align: center;
+  margin: 2rem;
+  box-shadow: 1px 1px 3px gray;
+  padding: 3rem;
+}
+
+
+
+.backPanel2 {
+
+  align-self: center;
+}

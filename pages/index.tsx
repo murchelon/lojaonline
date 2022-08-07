@@ -1,8 +1,9 @@
 import React from 'react'
-import LojaOnlineController from '../src/LojaOnlineController.tsx' 
-import { AuthProvider } from '../src/Contexts/AuthContext.tsx'
+import { NextPage } from 'next'
+import LojaOnlineController from '../src/LojaOnlineController' 
+import { AuthProvider } from '../src/Contexts/AuthContext'
 
-const RootSite = () => {
+const RootSite: NextPage = () => {
   return (
     <AuthProvider>
       <LojaOnlineController />  

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
-import { API_login, API_isTokenAline } from '../Services/API_FinalProject.ts'
+import { API_login, API_isTokenAlive } from '../Services/API_FinalProject'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
 
 
@@ -23,6 +23,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState<tpUser>(_initialUser)
   const [isAuth, setIsAuth] = useState<boolean>(false)
 
+
   useEffect(() => {    
     const { 'lojaonline.token': token } = parseCookies()
     const { 'lojaonline.userInfo': userInfo } = parseCookies()
@@ -32,6 +33,7 @@ export function AuthProvider({ children }) {
       if (userInfo) {
         setUser(JSON.parse(userInfo))
         setIsAuth(true)
+
       }
 
     }
@@ -52,7 +54,8 @@ export function AuthProvider({ children }) {
     }
   
     setUser(_initialUser)
-    setIsAuth(false)  
+    setIsAuth(false) 
+
 
 
   }
@@ -61,7 +64,7 @@ export function AuthProvider({ children }) {
   {
     var isTokenOk = false;
 
-    const x = await API_isTokenAline(token)
+    const x = await API_isTokenAlive(token)
    
     return x    
   }
@@ -108,6 +111,7 @@ export function AuthProvider({ children }) {
   
         setUser(_user)
         setIsAuth(true)
+
       }
       else
       {
@@ -125,7 +129,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuth, signIn, logoff, isTokenAlive}}>
+    <AuthContext.Provider value={{ user, isAuth, signIn, logoff, isTokenAlive }}>
       {children}
     </AuthContext.Provider>
   )

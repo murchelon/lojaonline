@@ -31,6 +31,7 @@ const HeaderView = (props: any) =>  {
                     <>
                       <div>Produtos</div>
                       <div>Favoritos</div>
+                      <div>Novo Usuario</div>
                     </>
                 )}
 

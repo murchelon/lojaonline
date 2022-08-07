@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextPage } from 'next'
 import CardStyles from './Card.module.css'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -14,7 +15,7 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
 
 
-const CardView = (props: any) =>  {
+const CardView: NextPage = (props: any) =>  {
 
     const fullName: string = props.product.name
     const isFavorite: boolean = props.product.favorite

@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginView from './LoginView.tsx'
+import LoginView from './LoginView'
 
 const LoginController = () =>  {
 

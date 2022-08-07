@@ -1,8 +1,9 @@
 import React from 'react'
+import { NextPage } from 'next'
 import CadastrarController from '../src/Screens/Cadastrar/CadastrarController' 
 import { AuthProvider } from '../src/Contexts/AuthContext'
 
-const Cadastrar = () =>  {
+const Cadastrar: NextPage = () =>  {
 
   return (
     <AuthProvider>

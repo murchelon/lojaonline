@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AuthContext } from '../../Contexts/AuthContext.tsx'
+import { AuthContext } from '../../Contexts/AuthContext'
 import LoginStyles from './Login.module.css'
 
 import Router from 'next/router'
@@ -34,11 +34,11 @@ const LoginView: NextPage = () =>  {
   
   const validationSchema = yup.object({
     email: yup
-      .string('Digite o seu e-mail')
+      .string()
       .email('Digite um e-mail válido')
       .required('O e-mail é obrigatório'),
     password: yup
-      .string('Digite a sua senha')
+      .string()
       .min(6, 'A senha precisa ter no mínimo 6 caracteres')
       .required('A senha é obrigatória'),
   });
@@ -118,7 +118,11 @@ const LoginView: NextPage = () =>  {
       <div className={LoginStyles.backContainer}>  
 
         <div className={LoginStyles.backPanel}>          
-      
+          <div>
+            Digite os seus dados:
+            <br />
+            <br />
+          </div>
           <form onSubmit={formik.handleSubmit}>
             <TextField
               fullWidth
@@ -145,18 +149,21 @@ const LoginView: NextPage = () =>  {
               disabled={!!isSubmiting} 
 
             />
-            <Button color="primary" id="btnSubmit" disabled={!!isSubmiting} variant="contained" disableElevation fullWidth type="submit">
-              Submit
-            </Button>
-         
-          </form>
-          
-          <br />
-          
-          <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleNewUser}>
-            Cadastrar novo Usuário
-          </Button>   
+            
+            <br /><br />
 
+            <Button color="primary" id="btnSubmit" disabled={!!isSubmiting} variant="contained" disableElevation fullWidth type="submit">
+              Login
+            </Button>
+
+            <br /><br />
+
+            <Button color="primary" type="button" disabled={!!isSubmiting} variant="contained" disableElevation fullWidth onClick={handleNewUser}>
+              Cadastrar novo Usuário
+            </Button>  
+
+          </form>
+         
           {/* <Button color="primary" variant="contained" disableElevation fullWidth onClick={handleBtnDebug}>
             isTokenAlive
           </Button>    */}

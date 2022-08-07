@@ -23,7 +23,7 @@
     "bcryptjs": "^2.4.3",
     "formik": "^2.2.9",
     "jsonwebtoken": "^8.5.1",
-    "next": "12.2.1",
+    "next": "^12.2.1",
     "next-pwa": "^5.5.4",
     "nodemon": "^2.0.19",
     "nookies": "^2.5.2",

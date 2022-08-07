@@ -1,19 +1,13 @@
 import React from 'react'
-import { NextPage } from 'next'
 import LojaOnlineStyles from './LojaOnline.module.css'
-import HeaderController from './Components/Header/HeaderController.tsx'
-import ProductsController from './Screens/Products/ProductsController.tsx'
-import LoginController from './Screens/Login/LoginController.tsx'
+import HeaderController from './Components/Header/HeaderController'
+import ProductsController from './Screens/Products/ProductsController'
+import LoginController from './Screens/Login/LoginController'
 
-
-
-const LojaOnlineView: NextPage = (props: any) =>  {
+const LojaOnlineView = (props: any) =>  {
 
   const isAuth: boolean = props.isAuth
   const user = props.user
-
-  // console.log('LojOnlineView: isAuth: ' + isAuth)
-
 
   return (
 

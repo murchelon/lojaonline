@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextPage } from 'next'
 import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
 import LojaOnlineController from '../src/LojaOnlineController' 
@@ -24,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
 }
 
-const Loja = () => {
+const Loja: NextPage = () => {
   return (
     <AuthProvider>
       <LojaOnlineController />  

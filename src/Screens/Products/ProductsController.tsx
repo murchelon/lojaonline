@@ -1,21 +1,22 @@
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { parseCookies } from 'nookies'
-import ProductsView from './ProductsView.tsx'
-import { AuthContext } from '../../Contexts/AuthContext.tsx'
-import { API_getAllProducts, API_setFavorite } from '../../Services/API_FinalProject.ts'
-import { tpProduct } from '../../Contexts/AuthContextTypes'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import ProductsView from './ProductsView'
+import { tpProduct } from '../../Contexts/AuthContextTypes'
+import { AuthContext } from '../../Contexts/AuthContext'
+import { API_getAllProducts, API_setFavorite } from '../../Services/API_FinalProject'
+
+
 
 const ProductsController = () =>  {
 
   const { isTokenAlive, user, isAuth, logoff } = useContext(AuthContext)
 
-  const [stProducts, set_stProducts] = React.useState(() => {
-        
+  const [stProducts, set_stProducts] = React.useState(() => {        
     let ret: Array<tpProduct> = [];
-
     return ret;        
 });
 

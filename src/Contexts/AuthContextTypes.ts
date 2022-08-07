@@ -1,15 +1,21 @@
+export type tpCreateUser = {
+    name: string;
+    email: string;
+    password: string;
+    phone: string;
+}
 
+export type tpSignInData = {
+    email: string;
+    password: string;
+}
+  
 export type tpUser = {
     token: string;
     userId: string;
     name: string;
     email: string;
     phone: string;
-}
-  
-export type tpSignInData = {
-    email: string;
-    password: string;
 }
   
 export type tpAuthContext = {
@@ -19,8 +25,6 @@ export type tpAuthContext = {
     logoff: () => Promise<void>;
     isTokenAlive: (token: string) => Promise<boolean>;
 }
-  
-
 
 export type tpProduct = {
     favorite: boolean;

@@ -5,7 +5,7 @@ This repository is the delivered code for the final project of my MBA, for the d
 ## Project Description:
 https://github.com/murchelon/lojaonline/blob/main/_ProjectNotes/FinalProject_Description.md
 
-## Comandos (remover depois)
+## Commands used to install all librarys. Package.json informs that, but, here I have the actual commands used.
 
 npx create-next-app lojaonline --template typescript
 
@@ -22,7 +22,6 @@ npm i --save-dev @mui/types
 npm i -S formik yup
 npm i --save-dev @types/yup
 
-
 npm i nookies
 npm i --save-dev @types/cookie
 
@@ -33,8 +32,7 @@ npm i react-toastify
 
 npm run dev
 
-
-## Links (remover depois)
+## Useful links:
 
 https://fiap-reactjs-presencial.herokuapp.com/doc/#/
 
@@ -43,9 +41,10 @@ https://github.com/joserrodrigues/fiap_mba_presencial_react_trabalho_final
 https://www.simicart.com/manifest-generator.html/
 https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 
+https://arunoda.me/blog/ssr-and-server-only-modules
 
 
-## Tech Stack: Trying to use it all, as a training path
+## Tech Stack: Trying to use it all, as a training path:
 - (DOING) React
 - (DOING) Typescript
 - (DONE!) Full responsive
@@ -68,6 +67,15 @@ https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 - (TODO) Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
 - (TODO) Killer design or MUI Theme
 - (DOING) Cool README.md with Markdown
+coockies
 - Axios
 - Async/Await
+- Integracao com Google Maps
+- regex
+
+cadastrar novo usuario
+Pesquisar produtos
+detalhes do produto
+descrever cada tela de acordo com o pedido no projeto
+Mapas: Mostrar lojas mais proximas
 

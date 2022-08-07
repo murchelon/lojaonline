@@ -1,11 +1,10 @@
 import React from 'react'
-import { NextPage } from 'next'
 import ProductsStyles from './Products.module.css'
-import Card from '../../Components/Card/CardController.tsx'
+import Card from '../../Components/Card/CardController'
 import Grid from "@mui/material/Grid"
 import { tpProduct } from '../../Contexts/AuthContextTypes'
 
-const ProductsView: NextPage = (props: any) =>  {
+const ProductsView = (props: any) =>  {
 
   const products: Array<tpProduct> = props.products
 

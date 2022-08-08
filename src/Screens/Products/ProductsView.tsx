@@ -65,7 +65,7 @@ const ProductsView = (props: any) =>  {
 
 
     return (        
-      <div className={finalStyle} onClick={() => {props.handleSetPage(page)}}>{page}</div>
+      <div className={finalStyle} key={page} onClick={() => {props.handleSetPage(page)}}>{page}</div>
     );
   });
 

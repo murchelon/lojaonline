@@ -63,6 +63,9 @@
 	color: darkblue;
 }
 
+.menuSingleItem	{
+	cursor: pointer;
+}
 
 
 /* .listInline {

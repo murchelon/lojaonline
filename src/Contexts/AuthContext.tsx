@@ -1,7 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { setCookie, parseCookies, destroyCookie } from 'nookies'
 import { API_login, API_isTokenAlive } from '../Services/API_FinalProject'
 import { tpUser, tpSignInData, tpAuthContext } from './AuthContextTypes'
+import { SessaoContext } from './SessaoContext'
 
 
 // import { recoverUserInformation, signInRequest } from "../services/auth";
@@ -11,6 +12,8 @@ export const AuthContext = createContext({} as tpAuthContext)
 
 
 export function AuthProvider({ children }) {
+
+  const { defineSessao } = useContext(SessaoContext)
 
   const _initialUser: tpUser = {
     token: '',
@@ -29,16 +32,12 @@ export function AuthProvider({ children }) {
     const { 'lojaonline.userInfo': userInfo } = parseCookies()
 
     if (token) {
-
       if (userInfo) {
         setUser(JSON.parse(userInfo))
         setIsAuth(true)
-
       }
-
     }
   }, [])
-
 
   async function logoff()
   {
@@ -55,9 +54,8 @@ export function AuthProvider({ children }) {
   
     setUser(_initialUser)
     setIsAuth(false) 
-
-
-
+    defineSessao('INIT')
+    
   }
 
   async function isTokenAlive(token: string)

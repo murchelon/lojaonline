@@ -14,7 +14,7 @@ import { API_getAllProducts, API_setFavorite } from '../../Services/API_FinalPro
 const ProductsController = () =>  {
 
   const { isTokenAlive, user, isAuth, logoff } = useContext(AuthContext)
-
+  
   const [stPAGE_ACTIVE, set_stPAGE_ACTIVE] = React.useState(1);
   const [stPAGE_TOTALPROD, set_stPAGE_TOTALPROD] = React.useState(0);
   const [stPAGE_PERPAGE, set_stPAGE_PERPAGE] = React.useState(0);

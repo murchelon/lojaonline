@@ -12,6 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { AuthContext } from '../../Contexts/AuthContext'
+import { SessaoContext } from '../../Contexts/SessaoContext'
 import LoginStyles from './Login.module.css'
 
 import Router from 'next/router'
@@ -23,6 +24,8 @@ import Router from 'next/router'
 const LoginView: NextPage = () =>  {
 
   const { signIn, isTokenAlive } = useContext(AuthContext)
+
+  const { defineSessao } = useContext(SessaoContext)
 
   const [isSubmiting, setIsSubmiting] = useState(false); 
 
@@ -63,6 +66,7 @@ const LoginView: NextPage = () =>  {
               if (result)
               {
                 setIsSubmiting(false)
+                defineSessao('LOJA')
                 resolve('login sucesso')
                 Router.push('/loja'); 
               }
@@ -109,6 +113,7 @@ const LoginView: NextPage = () =>  {
 
   function handleNewUser()
   {
+
     Router.push('/cadastrar'); 
   }
 

@@ -1,7 +1,8 @@
 import React from 'react'
-import HeaderStyles from './Header.module.css'
+import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@mui/material/Button';
+import HeaderStyles from './Header.module.css'
 
 const HeaderView = (props: any) =>  {
 
@@ -11,9 +12,7 @@ const HeaderView = (props: any) =>  {
     // console.log('HeaderView: isAuth = ' + isAuth)
 
     return (
-
       <>
-
         <nav className={HeaderStyles.sticky}>
           <div className={HeaderStyles.headerContainer}>
             <div className={HeaderStyles.logoContainer}>
@@ -29,9 +28,15 @@ const HeaderView = (props: any) =>  {
 
                 {isAuth && (
                     <>
-                      <div>Produtos</div>
-                      <div>Favoritos</div>
-                      <div>Novo Usuario</div>
+                      <Link href="/loja">
+                        <div className={HeaderStyles.menuSingleItem}>Produtos</div>
+                      </Link>                    
+                      <Link href="/favoritos">
+                        <div className={HeaderStyles.menuSingleItem}>Favoritos</div>
+                      </Link>                    
+                      <Link href="/cadastrar">
+                        <div className={HeaderStyles.menuSingleItem}>Novo Usuario</div>
+                      </Link>  
                     </>
                 )}
 
@@ -48,8 +53,6 @@ const HeaderView = (props: any) =>  {
               </div>
             </div>
           </div>
-          
-            
 
           {/* <h1>Scroll Margin</h1>
           <ul class={HeaderStyles.listInline}>

@@ -72,6 +72,7 @@ coockies
 - Async/Await
 - Integracao com Google Maps
 - regex
+- paginacao
 
 cadastrar novo usuario
 Pesquisar produtos

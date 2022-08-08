@@ -43,7 +43,7 @@ const CardView: NextPage = (props: any) =>  {
             alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" className={CardStyles.cardTitle2}>
               {shortName}
             </Typography>
             <Typography variant="body2" color="text.secondary" className={CardStyles.cardDesc}>

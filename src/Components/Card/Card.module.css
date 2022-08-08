@@ -7,6 +7,10 @@
     flex: 1;
 }
 
+.cardTitle2 {
+    min-height: 3.8rem;
+}
+
 .cardDesc   {
     min-height: 5rem;
 }

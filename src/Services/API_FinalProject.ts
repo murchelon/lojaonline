@@ -47,9 +47,9 @@ export async function API_isTokenAlive(token: string)
 
 
 
-export async function API_getAllProducts(token: string)
+export async function API_getAllProducts(token: string, page: string)
 {
-    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/?page=1&perPage=100', {
+    const res = await fetch('https://fiap-reactjs-presencial.herokuapp.com/storeProducts/?page=' + page + '&perPage=6', {
         method: 'GET',
         headers:{
             'Content-Type': 'application/x-www-form-urlencoded',

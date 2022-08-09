@@ -11,7 +11,8 @@ import { API_getAllProducts, API_setFavorite } from '../../Services/API_FinalPro
 
 
 
-const ProductsController = () =>  {
+
+const ProductsController = (props) =>  {
 
   const { isTokenAlive, user, isAuth, logoff } = useContext(AuthContext)
   
@@ -23,6 +24,8 @@ const ProductsController = () =>  {
     let ret: Array<tpProduct> = [];
     return ret;        
   });
+
+  const sessao = props.sessao
 
   useEffect(() => {    
 

@@ -3,10 +3,12 @@ import { useContext } from 'react'
 import { NextPage } from 'next'
 import LojaOnlineView from './LojaOnlineView'
 import { AuthContext } from './Contexts/AuthContext'
+import { SessaoContext } from './Contexts/SessaoContext'
 
 const LojaOnlineController: NextPage = () => {
 
     const { isAuth, user } = useContext(AuthContext)
+    const { sessao } = useContext(SessaoContext)
 
 
     // console.log('LojOnlineController: isAuth: ' + isAuth)
@@ -16,6 +18,7 @@ const LojaOnlineController: NextPage = () => {
         <LojaOnlineView 
             isAuth={isAuth}  
             user={user}
+            sessao={sessao}
         />  
      
     );

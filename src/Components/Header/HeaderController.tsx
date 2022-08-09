@@ -1,12 +1,15 @@
 import React from 'react'
 import { useContext } from 'react'
+import Router from 'next/router'
 import HeaderView from './HeaderView'
 import { AuthContext } from '../../Contexts/AuthContext'
-import Router from 'next/router'
+import { SessaoContext } from '../../Contexts/SessaoContext'
+
 
 const HeaderController = () =>  {
 
   const { isAuth, user } = useContext(AuthContext)
+  const { defineSessao } = useContext(SessaoContext)
 
   const { logoff } = useContext(AuthContext)
 
@@ -16,6 +19,27 @@ const HeaderController = () =>  {
     Router.push('/'); 
   }
 
+
+  function handleMenuClick(menu: string)
+  {
+    
+    defineSessao(menu)
+
+    switch(menu)
+    {
+      case 'LOJA':
+        Router.push('/loja')
+        break;
+      case 'FAV':
+        Router.push('/favoritos')
+        break;
+      case 'NEWUSER':
+        Router.push('/cadastrar')
+        break;
+    }
+  }
+
+
   // console.log('isAuth = ' + isAuth)
 
   return (
@@ -23,6 +47,7 @@ const HeaderController = () =>  {
       isAuth={isAuth}  
       name={user.name}
       handleLogoff={handleLogoff}
+      handleMenuClick={handleMenuClick}
     />
   );
 } 

@@ -5,6 +5,54 @@ This repository is the delivered code for the final project of my MBA, for the d
 ## Project Description:
 https://github.com/murchelon/lojaonline/blob/main/_ProjectNotes/FinalProject_Description.md
 
+## Live Link:
+theLink
+
+## Video from the app:
+videolink
+
+## Tech Stack: Trying to use it all, as a training path:
+
+- (DONE!) React
+- (DONE!) Typescript
+- (DONE!) Full responsive
+- (DONE!) MVC
+- (DONE!) Data fetched from an API
+- (DONE!) useContext & pass state to child from parent (just to try both!)
+- (DONE!) Next.js
+- (DONE!) PWA
+- (DONE!) JWT
+- (TODO)  ServiceWorker: offline mode
+- (DONE!) Formik
+- (DONE!) Yup
+- (DONE!) Material UI components
+- (DONE!) CSS-in-js (Styled Components)
+- (DONE!) LocalStorage/cookies: Used nookies library to access cookies in client and server with 1 library
+- (TODO)  Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
+- (DONE!) At least 1 screen must use Server Side Rendering (cookie checked in server side: GetServerSideProps
+- (DONE!) Use Postman (to test API endpoint)
+- (TODO)  Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
+- (very far) Killer design or MUI Theme
+- (DONE!) Cool README.md with Markdown
+- (DONE!) Async/Await
+- (TODO)  Google Maps Integration
+- (TODO)  Use of GPS in mobile
+
+## Project features, that were asked:
+
+- (DONE!) Pagination
+- (DONE!) New User screen
+- (DONE!) Products screen
+- (DONE!) Favorites screen
+- (TODO) Product Detail
+- (DONE!) NavBar on top/left
+- (DONE!) 100% Responsive
+- (DONE!) Use Formik and Yup
+- (TODO) Google Maps: Show nearby stores
+
+## Screenshots
+pictures
+
 ## Commands used to install all librarys. Package.json informs that, but, here I have the actual commands used.
 
 npx create-next-app lojaonline --template typescript
@@ -42,41 +90,4 @@ https://www.simicart.com/manifest-generator.html/
 https://blog.avneesh.tech/how-to-create-a-pwa-with-nextjs
 
 https://arunoda.me/blog/ssr-and-server-only-modules
-
-
-## Tech Stack: Trying to use it all, as a training path:
-- (DOING) React
-- (DOING) Typescript
-- (DONE!) Full responsive
-- (DOING) MVC
-- (TODO) Dados via API
-- (TODO) useContext (ou redux): repositorio central de estado
-- (DONE!) Next.js
-- (DONE!) PWA
-- (TODO) JWT
-- (TODO) ServiceWorker: offline mode
-- (TODO) Formik
-- (TODO) Yup (Validacao)
-- (DOING) Material UI components
-- (DONE!) CSS-in-js (Styled Components)
-- (TODO) LocalStorage
-- (TODO) Radio to change technical features that are implemented (useState, useContext, useRedux, Redux-Saga)
-- (TODO) At least 1 screen must use Server Side Rendering (Maybe in the blockchain feature)
-- (TODO) uma das telas deve ser CSR next
-- (DONE!) Postman (to test API endpoint)
-- (TODO) Blockchain! Allow login with a ETH wallet (augmenting the existing API that doesnt support it)
-- (TODO) Killer design or MUI Theme
-- (DOING) Cool README.md with Markdown
-coockies
-- Axios
-- Async/Await
-- Integracao com Google Maps
-- regex
-- paginacao
-
-cadastrar novo usuario
-Pesquisar produtos
-detalhes do produto
-descrever cada tela de acordo com o pedido no projeto
-Mapas: Mostrar lojas mais proximas
 

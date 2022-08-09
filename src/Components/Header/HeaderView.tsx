@@ -1,13 +1,14 @@
 import React from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@mui/material/Button';
 import HeaderStyles from './Header.module.css'
+
 
 const HeaderView = (props: any) =>  {
 
     const isAuth: boolean = props.isAuth
     const handleLogoff = props.handleLogoff
+    const handleMenuClick = props.handleMenuClick
 
     // console.log('HeaderView: isAuth = ' + isAuth)
 
@@ -28,15 +29,9 @@ const HeaderView = (props: any) =>  {
 
                 {isAuth && (
                     <>
-                      <Link href="/loja">
-                        <div className={HeaderStyles.menuSingleItem}>Produtos</div>
-                      </Link>                    
-                      <Link href="/favoritos">
-                        <div className={HeaderStyles.menuSingleItem}>Favoritos</div>
-                      </Link>                    
-                      <Link href="/cadastrar">
-                        <div className={HeaderStyles.menuSingleItem}>Novo Usuario</div>
-                      </Link>  
+                      <div className={HeaderStyles.menuSingleItem} onClick={() => {handleMenuClick('LOJA')}}>Produtos</div>
+                      <div className={HeaderStyles.menuSingleItem} onClick={() => {handleMenuClick('FAV')}}>Favoritos</div>
+                      <div className={HeaderStyles.menuSingleItem} onClick={() => {handleMenuClick('NEWUSER')}}>Novo Usuario</div>        
                     </>
                 )}
 
